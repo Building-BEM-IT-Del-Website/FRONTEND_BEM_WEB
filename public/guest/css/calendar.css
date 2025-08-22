@@ -1,0 +1,490 @@
+/* Calendar Section Styles */
+.kalender-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+}
+
+/* Added category filter styles */
+.category-filters {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.filter-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.filter-btn {
+  background: #f8fafc;
+  color: #64748b;
+  border: 2px solid #e2e8f0;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+  background: #f0f9ff;
+  border-color: #3b82f6;
+  color: #3b82f6;
+  transform: translateY(-2px);
+
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+
+.category-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-color.bem {
+  background-color: #3b82f6;
+}
+.legend-color.kemahasiswaan {
+  background-color: #10b981;
+}
+.legend-color.himpunan {
+  background-color: #f59e0b;
+}
+.legend-color.ukm {
+  background-color: #8b5cf6;
+}
+.legend-color.akademik {
+  background-color: #ef4444;
+}
+
+/* Added horizontal layout container for events and calendar */
+.calendar-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.calendar-container {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  border: 1px solid #e2e8f0;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.calendar-month-year {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.calendar-nav-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.calendar-nav-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.calendar-grid {
+  width: 100%;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  margin-bottom: 10px;
+}
+
+.weekday {
+  padding: 15px 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #374151;
+  position: relative;
+  border-radius: 8px;
+  margin: 2px;
+}
+
+.calendar-day:hover {
+  background: #f0f9ff;
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.calendar-day.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.calendar-day.today {
+  background: #3b82f6;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Updated event styling to use dynamic colors based on category */
+.calendar-day.has-event {
+  background: rgba(var(--event-color-rgb), 0.1);
+  border-color: var(--event-color);
+  color: var(--event-color);
+  font-weight: 600;
+}
+
+.calendar-day.has-event::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--event-color);
+  border-radius: 50%;
+}
+
+.calendar-day.today.has-event::after {
+  background: white;
+}
+
+/* Upcoming Events */
+.upcoming-events {
+  flex: 1;
+  margin-top: 0;
+}
+
+.events-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.events-list {
+  display: grid;
+  gap: 20px;
+}
+
+.event-item {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.event-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border-color: #3b82f6;
+}
+
+.event-date {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  min-width: 70px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.event-day {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.event-month {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.event-details {
+  flex: 1;
+}
+
+/* Added event header with category badge */
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 15px;
+}
+
+.event-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  flex: 1;
+}
+
+.event-category {
+  background: #3b82f6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.event-description {
+  color: #64748b;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.event-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Added organizer styling */
+.event-time,
+.event-location,
+.event-organizer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.event-time i,
+.event-location i,
+.event-organizer i {
+  color: #3b82f6;
+  width: 14px;
+}
+
+/* Added styling for no events message */
+.no-events {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.no-events p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Added responsive styles for category filters */
+  .category-filters {
+    padding: 20px;
+    margin: 0 15px 30px;
+  }
+
+  .filter-buttons {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .category-legend {
+    gap: 15px;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+  }
+
+  .calendar-layout {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .calendar-container {
+    padding: 20px;
+    margin: 0 15px 0;
+    max-width: none;
+  }
+
+  .calendar-header {
+    margin-bottom: 20px;
+  }
+
+  .calendar-month-year {
+    font-size: 1.4rem;
+  }
+
+  .calendar-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .weekday {
+    padding: 10px 5px;
+    font-size: 0.8rem;
+  }
+
+  .calendar-day {
+    font-size: 0.9rem;
+  }
+
+  .event-item {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .event-date {
+    min-width: 60px;
+    padding: 12px;
+  }
+
+  .event-day {
+    font-size: 1.5rem;
+  }
+
+  /* Added responsive styles for event header */
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .event-category {
+    align-self: flex-start;
+  }
+
+  .event-meta {
+    flex-direction: column;
+    gap: 8px;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .kalender-section {
+    padding: 60px 0;
+  }
+
+  .event-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .event-date {
+    align-self: center;
+  }
+
+  /* Added mobile styles for event header */
+  .event-header {
+    text-align: center;
+  }
+
+  .event-category {
+    align-self: center;
+  }
+}

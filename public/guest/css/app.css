@@ -1,0 +1,804 @@
+/* 1. SKEMA WARNA BARU SESUAI LOGO */
+:root {
+    --del-primary-blue: #0078D4;
+    /* Biru cerah dari logo BEM */
+    --del-accent-yellow: #D4DD51;
+    /* Kuning/hijau dari ikon payung */
+    --del-dark: #212529;
+    /* Hitam pekat untuk teks agar mudah dibaca */
+    --del-light-gray: #f8f9fa;
+    /* Abu-abu sangat terang untuk background */
+    --del-text-muted: #6c757d;
+    /* Abu-abu untuk teks sekunder */
+}
+/* 2. Pengaturan Dasar & Kustomisasi Bootstrap */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.bg-del-primary-blue {
+    background-color: var(--del-primary-blue);
+}
+.text-del-primary-blue {
+    color: var(--del-primary-blue);
+}
+.border-del-primary-blue {
+    border-color: var(--del-primary-blue) !important;
+}
+.btn-primary {
+    background-color: var(--del-primary-blue);
+    border-color: var(--del-primary-blue);
+}
+.btn-warning {
+    background-color: var(--del-accent-yellow);
+    border-color: var(--del-accent-yellow);
+    color: var(--del-dark) !important;
+    /* Teks gelap di atas tombol kuning */
+}
+.btn-warning:hover {
+    filter: brightness(0.95);
+}
+/* 3. CSS UNTUK HERO SECTION BARU */
+.hero-section-v2 {
+    background-color: var(--del-light-gray);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    overflow: hidden;
+}
+.hero-image-wrapper {
+    position: relative;
+    background: linear-gradient(135deg, var(--del-primary-blue), #00A1E0);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+}
+.hero-image-wrapper img {
+    border-radius: 1rem;
+}
+.hero-section-v2 h1 {
+    font-weight: 800;
+    /* Extra bold */
+}
+/* 16. CSS UNTUK PARTNER/ORMAWA MARQUEE */
+.partner-section {
+    padding: 4rem 0;
+    background-color: var(--del-light-gray);
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+.partner-marquee {
+    overflow: hidden;
+    position: relative;
+    /* Efek gradien di sisi kiri kanan agar logo muncul & menghilang mulus */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.partner-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.partner-logo {
+    height: 60px; /* Sesuaikan tinggi logo */
+    margin: 0 40px;
+    /* filter: grayscale(100%); Membuat logo jadi abu-abu */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+.partner-logo:hover {
+    filter: grayscale(0%); /* Warna asli saat di-hover */
+    opacity: 1;
+}
+/* 5. CSS UNTUK KALENDER */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+.calendar-cell {
+    border: 1px solid #eee;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+}
+.calendar-cell .events {
+    overflow-y: auto;
+    font-size: 0.75rem;
+}
+.calendar-cell.is-today {
+    background-color: var(--del-primary-blue);
+    color: white;
+}
+.event-badge {
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    color: white;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* 6. CSS UNTUK ASPIRASI */
+.scrolling-columns-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+@media (max-width: 991px) {
+    .scrolling-columns-container {
+        margin-bottom: 2rem;
+    }
+}
+@media (max-width: 767px) {
+    .scrolling-columns-container {
+        grid-template-columns: 1fr;
+    }
+}
+.scrolling-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+@keyframes scroll-up {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-50%);
+    }
+}
+@keyframes scroll-down {
+    from {
+        transform: translateY(-50%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.scrolling-column:nth-child(odd) {
+    animation: scroll-up 40s linear infinite;
+}
+.scrolling-column:nth-child(even) {
+    animation: scroll-down 35s linear infinite;
+}
+scrolling-columns-container:hover .scrolling-column {
+    animation-play-state: paused;
+}
+
+
+/* 7. CSS UNTUK HALAMAN ORGANISASI */
+.hero-organisasi {
+    background: linear-gradient(135deg, var(--del-primary-blue) 0%, #005aa7 100%);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+/* Efek lingkaran blur di background hero */
+.hero-organisasi::before, .hero-organisasi::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+}
+
+.hero-organisasi::before {
+    background: #ffffff;
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+}
+
+.hero-organisasi::after {
+    background: var(--del-accent-yellow);
+    width: 250px;
+    height: 250px;
+    bottom: -120px;
+    right: -80px;
+}
+
+.hero-organisasi .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-organisasi .highlight {
+    color: var(--del-accent-yellow);
+}
+
+.card-organisasi {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+}
+
+.card-organisasi:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.card-icon-box {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn-gradient {
+    background: linear-gradient(45deg, var(--del-primary-blue), #00A1E0);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+.agenda-list .agenda-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 0;
+}
+
+.agenda-list .agenda-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.agenda-list .agenda-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    margin-right: 1rem;
+    background-color: var(--del-light-gray);
+    border-radius: 0.75rem;
+    text-align: center;
+}
+
+.agenda-list .agenda-date .day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--del-primary-blue);
+    line-height: 1;
+}
+
+.agenda-list .agenda-date .month {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--del-text-muted);
+}
+
+.agenda-list .agenda-info .title {
+    font-weight: 600;
+    color: var(--del-dark);
+    margin-bottom: 0.1rem;
+}
+
+.agenda-list .agenda-info .time {
+    font-size: 0.9rem;
+    color: var(--del-text-muted);
+}
+
+/* 8. CSS BARU UNTUK HALAMAN BERITA INTERAKTIF */
+
+/* --- Featured Post --- */
+.featured-post-card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    min-height: 400px;
+    position: relative;
+    color: white;
+}
+.featured-post-card .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.4s ease;
+}
+.featured-post-card:hover .card-img {
+    transform: scale(1.05);
+}
+.featured-post-card .card-img-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+.featured-post-card .badge {
+    background-color: var(--del-accent-yellow);
+    color: var(--del-dark);
+}
+
+/* --- Filter Pills --- */
+.filter-pills .nav-link {
+    border-radius: 50rem;
+    color: var(--del-text-muted);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+.filter-pills .nav-link.active {
+    background-color: var(--del-primary-blue);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+}
+
+/* --- News Card Interaktif --- */
+.news-card {
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08), 0 0 0 2px var(--del-primary-blue);
+    border-color: var(--del-primary-blue);
+}
+
+/* 9. CSS UNTUK HALAMAN PENGUMUMAN (DESAIN BARU) */
+.hero-angled {
+    background: linear-gradient(135deg, var(--del-primary-blue) 0%, #005aa7 100%);
+    position: relative;
+    color: white;
+    padding: 6rem 0;
+    /* Ini adalah kunci untuk potongan diagonal! */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero-angled .container {
+    padding-bottom: 5rem; /* Memberi ruang agar teks tidak terpotong */
+}
+.hero-angled .highlight {
+    color: var(--del-accent-yellow);
+}
+
+.announcement-list .list-group-item {
+    border-radius: 0.75rem !important;
+    border: 1px solid #e9ecef;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+.announcement-list .list-group-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--del-primary-blue);
+}
+.announcement-list .announcement-icon {
+    font-size: 1.5rem;
+    color: var(--del-primary-blue);
+}
+
+.sidebar-widget {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    margin-bottom: 1.5rem;
+}
+.sidebar-widget .widget-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--del-dark);
+}
+.archive-list .list-group-item {
+    border: none;
+    padding: 0.5rem 0;
+    color: var(--del-text-muted);
+}
+.archive-list .list-group-item:hover {
+    color: var(--del-primary-blue);
+}
+
+/* 10. CSS UNTUK HALAMAN STRUKTUR ORGANISASI */
+
+/* Hero dengan bentuk melengkung */
+.hero-curved {
+    background: linear-gradient(135deg, var(--del-primary-blue) 0%, #005aa7 100%);
+    position: relative;
+    color: white;
+    padding-top: 6rem;
+    padding-bottom: 8rem; /* Lebih banyak padding bawah untuk efek lengkungan */
+    margin-bottom: -5rem; /* Tarik section di bawahnya ke atas */
+    /* Kunci untuk bentuk melengkung */
+    clip-path: ellipse(80% 100% at 50% 0%);
+}
+.hero-curved .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Kartu Pimpinan */
+.card-leader {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+}
+.card-leader .leader-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: -4rem auto 1rem auto; /* Tarik gambar ke atas */
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.card-leader .leader-quote {
+    font-style: italic;
+    color: var(--del-text-muted);
+}
+.leader-socials a {
+    color: var(--del-text-muted);
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+.leader-socials a:hover {
+    color: var(--del-primary-blue);
+    transform: scale(1.2);
+}
+
+/* Tab Departemen */
+.department-tabs .nav-link {
+    border-radius: 50rem;
+    font-weight: 600;
+    color: var(--del-text-muted);
+    transition: all 0.2s ease-in-out;
+}
+.department-tabs .nav-link.active {
+    background-color: var(--del-primary-blue) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+}
+
+/* Kartu Anggota */
+.card-member {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.card-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.card-member .member-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #eee;
+}
+
+/* 11. CSS UNTUK HALAMAN VISI & MISI */
+.hero-vision {
+    background-color: var(--del-light-gray);
+    padding: 6rem 0;
+}
+.card-vision {
+    background: linear-gradient(135deg, var(--del-primary-blue) 0%, #005aa7 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    border: none;
+    box-shadow: 0 15px 40px rgba(0, 120, 212, 0.2);
+}
+.card-vision h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.card-vision h1 strong {
+    font-weight: 700;
+}
+
+.card-mission {
+    border: none;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+.card-mission:hover {
+    transform: translateY(-5px);
+}
+.card-mission .mission-icon {
+    font-size: 2rem;
+    color: var(--del-primary-blue);
+    margin-bottom: 1rem;
+}
+.card-mission .mission-title {
+    font-weight: 700;
+    color: var(--del-dark);
+}
+
+.card-value {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.card-value:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.card-value .value-icon {
+    font-size: 3rem;
+    color: var(--del-primary-blue);
+    margin-bottom: 1rem;
+}
+.card-value .value-title {
+    font-weight: 700;
+}
+
+/* 12. CSS UNTUK HALAMAN KALENDER (DESAIN FINAL) */
+/* Header Halaman Kalender (Navigasi Bulan) */
+.calendar-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.calendar-main-header h2 {
+    font-weight: 800;
+    margin: 0;
+    font-size: 1.75rem;
+    color: var(--del-dark);
+}
+
+.calendar-main-header .nav-buttons .btn {
+    width: 40px;
+    height: 40px;
+    line-height: 1;
+    border-radius: 50%;
+}
+
+/* Tabel Kalender Utama yang Modern */
+.calendar-table-modern {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 5px; /* Memberi jarak antar sel */
+}
+
+.calendar-table-modern th {
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: 600;
+    color: var(--del-text-muted);
+}
+
+.calendar-table-modern td {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    height: 90px;
+    border-radius: 0.75rem; /* Sudut lebih bulat */
+    vertical-align: middle; /* Teks di tengah */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+    background-color: #f8f9fa; /* Warna dasar sel yang lembut */
+}
+
+.calendar-table-modern td.blank {
+    background-color: transparent;
+}
+
+.calendar-table-modern td:not(.blank):hover {
+    background-color: #e9ecef;
+    transform: scale(1.05);
+    z-index: 10;
+    position: relative;
+}
+
+.calendar-table-modern td.has-event {
+    cursor: pointer;
+}
+
+/* Penanda Hari Ini */
+.calendar-table-modern td.today {
+    background-color: var(--del-primary-blue) !important;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0, 120, 212, 0.3);
+}
+
+/* Penanda Tanggal yang Dipilih */
+.calendar-table-modern td.selected {
+    border: 2px solid var(--del-primary-blue);
+    box-shadow: 0 0 15px rgba(0, 120, 212, 0.4);
+    background-color: #e7f3ff !important;
+}
+
+/* Kunci Warna Sesuai Legenda Kategori */
+.calendar-table-modern td.day-bem { background-color: #FEFFB2 !important; color: #333; }
+.calendar-table-modern td.day-mpm { background-color: #ADD8E6 !important; color: #333; }
+.calendar-table-modern td.day-himapro { background-color: #B2DFDB !important; color: #333; }
+.calendar-table-modern td.day-ukm { background-color: #FFB6C1 !important; color: #333; }
+.calendar-table-modern td.day-keasramaan { background-color: #90EE90 !important; color: #333; }
+.calendar-table-modern td.day-kemahasiswaan { background-color: #48D1CC !important; color: #333; }
+
+/* Legenda Kategori */
+.legend-list .legend-item {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 50rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #dee2e6;
+}
+.legend-list .legend-item:hover {
+    transform: scale(1.05);
+}
+.legend-list .legend-item.active {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-weight: 700;
+    border-color: transparent;
+}
+
+/* Sidebar Agenda */
+.sidebar-widget {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    margin-bottom: 1.5rem;
+}
+.sidebar-widget .widget-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--del-dark);
+}
+.agenda-list .list-group-item {
+    border: none !important;
+    padding: 1rem;
+    border-radius: 0.5rem !important;
+    margin-bottom: 0.5rem;
+}
+.agenda-list .list-group-item:hover {
+    background-color: #f8f9fa;
+}
+/* Highlight saat tanggal di kalender diklik */
+.agenda-list .list-group-item.highlight {
+    background-color: #e7f3ff !important;
+    border-left: 4px solid var(--del-primary-blue);
+}
+
+/* 14. CSS UNTUK HALAMAN DETAIL (PENGUMUMAN & BERITA) v2 */
+/* Header */
+.detail-header { padding: 5rem 0 3rem 0; background-color: var(--del-light-gray); }
+.detail-header .post-meta { font-size: 0.9rem; color: var(--del-text-muted); }
+.detail-header .post-meta span { margin-right: 1.5rem; }
+.badge.bg-penting { background-color: #dc3545 !important; }
+.badge.bg-info { background-color: #0dcaf0 !important; }
+.badge.bg-reminder { background-color: #ffc107 !important; color: #000 !important; }
+
+/* Konten */
+.detail-content { font-size: 1.1rem; line-height: 1.8; }
+.detail-content h3 { font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.detail-content img { max-width: 100%; height: auto; border-radius: 0.75rem; margin: 1rem 0; }
+
+/* Sidebar Info Box */
+.info-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    position: sticky; /* Membuat box tetap terlihat saat scroll */
+    top: 120px; /* Jarak dari atas (sesuaikan dengan tinggi navbar) */
+}
+.info-box .info-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--del-dark);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.75rem;
+}
+.info-box .info-item {
+    display: flex;
+    margin-bottom: 1rem;
+}
+.info-box .info-item .icon {
+    font-size: 1.2rem;
+    color: var(--del-primary-blue);
+    margin-right: 1rem;
+    width: 25px;
+}
+.info-box .info-item .text .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--del-text-muted);
+    margin-bottom: -5px;
+}
+.info-box .info-item .text .value {
+    font-weight: 600;
+}
+
+
+/* 15. CSS UNTUK HALAMAN DETAIL ORGANISASI */
+.detail-org-header {
+    background: linear-gradient(135deg, var(--del-primary-blue) 0%, #005aa7 100%);
+    padding: 5rem 0;
+    color: white;
+    text-align: center;
+}
+.detail-org-header .org-logo {
+    max-width: 150px;
+    background-color: rgba(255, 255, 255, 0.9); /* Sedikit transparan */
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+}
+.detail-org-header .org-socials a {
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+.detail-org-header .org-socials a:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.nav-tabs .nav-link {
+    font-weight: 600;
+    color: var(--del-text-muted);
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+.nav-tabs .nav-link.active {
+    color: var(--del-primary-blue);
+    background-color: transparent;
+    border-bottom: 3px solid var(--del-primary-blue);
+}
+
+.vision-mission-section .icon-box {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+}
