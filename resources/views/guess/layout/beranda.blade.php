@@ -22,7 +22,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="hero-image-wrapper" data-aos="fade-left" data-aos-delay="200">
-                        <img src="{{ asset('guest/assets/bem.png') }}" class="img-fluid shadow-sm" alt="Foto Kabinet BEM IT Del">
+                        <img src="{{ asset('guest/assets/bem.png') }}" class="img-fluid shadow-sm"
+                            alt="Foto Kabinet BEM IT Del">
                     </div>
                 </div>
             </div>
@@ -75,43 +76,44 @@
 
     <!-- Keluarga Organisasi Section (BARU) -->
     <section id="organisasi" class="py-5 bg-del-light-gray">
-    <div class="container">
-        <!-- Header Section -->
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="display-5 fw-bold text-del-dark">Keluarga Organisasi</h2>
-            <p class="text-muted">Didukung dan bekerja sama dengan seluruh Himpunan Mahasiswa dan Unit Kegiatan Mahasiswa di IT Del.</p>
-        </div>
+        <div class="container">
+            <!-- Header Section -->
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-del-dark">Keluarga Organisasi</h2>
+                <p class="text-muted">Didukung dan bekerja sama dengan seluruh Himpunan Mahasiswa dan Unit Kegiatan
+                    Mahasiswa di IT Del.</p>
+            </div>
 
-        <!-- Marquee Logo -->
-        <div class="partner-marquee" data-aos="fade-up">
-            <div class="partner-track">
-                {{-- NANTINYA LOGO INI AKAN DIAMBIL DARI DATABASE --}}
+            <!-- Marquee Logo -->
+            <div class="partner-marquee" data-aos="fade-up">
+                <div class="partner-track">
+                    {{-- NANTINYA LOGO INI AKAN DIAMBIL DARI DATABASE --}}
 
-                {{-- Set 1 --}}
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 1">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 2">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 3">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 4">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 5">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 6">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 7">
+                    {{-- Set 1 --}}
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 1">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 2">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 3">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 4">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 5">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 6">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 7">
 
-                {{-- Set 2 (Duplikat untuk animasi loop yang mulus) --}}
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 1">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 2">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 3">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 4">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 5">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 6">
-                <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 7">
+                    {{-- Set 2 (Duplikat untuk animasi loop yang mulus) --}}
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 1">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 2">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 3">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 4">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 5">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 6">
+                    <img src="{{ asset('guest/assets/logo.png') }}" class="partner-logo" alt="Logo Ormawa 7">
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="/organisasi" class="btn btn-outline-primary rounded-pill px-4">Lihat Semua Organisasi</a>
             </div>
         </div>
-
-        <div class="text-center mt-5" data-aos="fade-up">
-            <a href="/organisasi" class="btn btn-outline-primary rounded-pill px-4">Lihat Semua Organisasi</a>
-        </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Berita Terkini Section (BARU) -->
@@ -175,77 +177,53 @@
                 <div class="col-lg-7" data-aos="fade-right">
                     <h2 class="display-6 fw-bold text-del-dark mb-4">Pengumuman Terbaru</h2>
                     <div class="list-group">
-                        {{-- Data Pengumuman ini nantinya akan diambil dari database --}}
-                        <a href="/detail-pengumuman" class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1 fw-bold">Jadwal Pengambilan Jas Almamater Angkatan 2024</h6>
-                                <small class="text-muted">3 hari lalu</small>
-                            </div>
-                            <p class="mb-1 small text-muted">Pengambilan dapat dilakukan di Sekretariat BEM mulai tanggal
-                                10-15 Agustus 2024.</p>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1 fw-bold">Open Recruitment Staf BEM Kabinet #SahatMarsada</h6>
-                                <small class="text-muted">5 hari lalu</small>
-                            </div>
-                            <p class="mb-1 small text-muted">Bagi seluruh mahasiswa aktif angkatan 2023, segera daftarkan
-                                dirimu!</p>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1 fw-bold">Informasi Beasiswa Pendidikan Prestasi Tahun 2024</h6>
-                                <small class="text-muted">1 minggu lalu</small>
-                            </div>
-                            <p class="mb-1 small text-muted">Silakan unduh panduan dan persyaratan pada link yang tertera.
-                            </p>
-                        </a>
+
+                        {{-- Loop data Pengumuman dari Controller --}}
+                        @forelse ($pengumuman as $item)
+                            <a href="/detail-pengumuman/{{ $item['id'] }}" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1 fw-bold">{{ $item['nama_pengumuman'] }}</h6>
+                                    {{-- Menggunakan Carbon untuk format tanggal yang user-friendly --}}
+                                    <small
+                                        class="text-muted">{{ \Carbon\Carbon::parse($item['created_at'])->diffForHumans() }}</small>
+                                </div>
+                                <p class="mb-1 small text-muted">{{ Str::limit($item['deskripsi'], 100) }}</p>
+                            </a>
+                        @empty
+                            <div class="alert alert-info">Belum ada pengumuman terbaru.</div>
+                        @endforelse
+
                     </div>
                     <a href="/pengumuman" class="btn btn-outline-primary rounded-pill px-4 mt-4">Semua Pengumuman</a>
                 </div>
+
                 <!-- Kolom Kalender -->
                 <div class="col-lg-5" data-aos="fade-left">
                     <h2 class="display-6 fw-bold text-del-dark mb-4">Agenda Terdekat</h2>
                     <div class="card shadow-sm">
                         <div class="card-body p-4 agenda-list">
 
-                            {{-- Data Agenda ini nantinya akan diambil dari database --}}
-
-                            <!-- Agenda Item 1 -->
-                            <div class="agenda-item">
-                                <div class="agenda-date">
-                                    <span class="day">10</span>
-                                    <span class="month">Agu</span>
+                            {{-- Loop data Agenda dari Controller --}}
+                            @forelse ($agenda as $event)
+                                <div class="agenda-item">
+                                    <div class="agenda-date">
+                                        {{-- Menggunakan kolom 'tanggal_mulai' dari model Pengumuman --}}
+                                        <span
+                                            class="day">{{ \Carbon\Carbon::parse($event['tanggal_mulai'])->format('d') }}</span>
+                                        <span
+                                            class="month">{{ \Carbon\Carbon::parse($event['tanggal_mulai'])->translatedFormat('M') }}</span>
+                                    </div>
+                                    <div class="agenda-info">
+                                        {{-- Menggunakan kolom 'nama_pengumuman' sebagai judul agenda --}}
+                                        <div class="title">{{ $event['nama_pengumuman'] }}</div>
+                                        {{-- Menggunakan kolom 'tanggal_mulai' untuk menampilkan waktu --}}
+                                        <div class="time"><i class="bi bi-clock me-1"></i>
+                                            {{ \Carbon\Carbon::parse($event['tanggal_mulai'])->format('H:i') }} - Selesai</div>
+                                    </div>
                                 </div>
-                                <div class="agenda-info">
-                                    <div class="title">Webinar Nasional Technopreneurship</div>
-                                    <div class="time"><i class="bi bi-clock me-1"></i> 09:00 - Selesai</div>
-                                </div>
-                            </div>
-
-                            <!-- Agenda Item 2 -->
-                            <div class="agenda-item">
-                                <div class="agenda-date">
-                                    <span class="day">17</span>
-                                    <span class="month">Agu</span>
-                                </div>
-                                <div class="agenda-info">
-                                    <div class="title">Upacara Peringatan HUT RI ke-79</div>
-                                    <div class="time"><i class="bi bi-clock me-1"></i> 08:00 - Selesai</div>
-                                </div>
-                            </div>
-
-                            <!-- Agenda Item 3 -->
-                            <div class="agenda-item">
-                                <div class="agenda-date">
-                                    <span class="day">25</span>
-                                    <span class="month">Agu</span>
-                                </div>
-                                <div class="agenda-info">
-                                    <div class="title">Leadership Training Camp (Hari-1)</div>
-                                    <div class="time"><i class="bi bi-clock me-1"></i> 13:00 - Selesai</div>
-                                </div>
-                            </div>
+                            @empty
+                                <div class="text-center text-muted p-3">Tidak ada agenda terdekat.</div>
+                            @endforelse
 
                         </div>
                     </div>
@@ -253,128 +231,98 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
     <!-- Aspirasi Section -->
     <section id="aspirasi" class="py-5 bg-dark text-white">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-5 fw-bold">Suara Mahasiswa</h2>
-                <p class="text-white-50">Sampaikan aspirasimu dan lihat apa kata mereka.</p>
-            </div>
+            {{-- ... header section ... --}}
             <div class="row g-4 g-lg-5 align-items-center">
                 <div class="col-lg-7" data-aos="fade-right">
                     <div class="scrolling-columns-container">
+
+                        {{-- Kolom 1 --}}
                         <div class="scrolling-column">
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Program Bermanfaat</h5>
-                                    <p class="card-text text-muted small">"Webinar series membuka wawasan kami tentang dunia
-                                        industri. Terima kasih!"</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Budi
-                                            Santoso</small></div>
+                            @forelse ($aspirasiColumns[0] ?? [] as $item)
+                                <div class="card p-3 shadow-sm border-0 bg-white text-dark">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">{{ $item['judul'] }}</h5>
+                                        <p class="card-text text-muted small">"{{ $item['deskripsi'] }}"</p>
+                                        <hr>
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($item['nama']) }}&background=random"
+                                                class="rounded-circle me-3" alt="Foto">
+                                            <small class="fw-bold">{{ $item['nama'] }}</small>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Inovatif & Kreatif</h5>
-                                    <p class="card-text text-muted small">"Del Innovate benar-benar jadi ajang unjuk gigi.
-                                        Terima kasih BEM!"</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Elisa
-                                            Putri</small></div>
-                                </div>
-                            </div>
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Transparansi Informasi</h5>
-                                    <p class="card-text text-muted small">"Website baru ini keren! Kalender kegiatannya
-                                        sangat membantu agar tidak ketinggalan info."</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Doni
-                                            Firmansyah</small></div>
-                                </div>
-                            </div>
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Program Bermanfaat</h5>
-                                    <p class="card-text text-muted small">"Webinar series membuka wawasan kami tentang dunia
-                                        industri. Terima kasih!"</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Budi
-                                            Santoso</small></div>
-                                </div>
-                            </div>
+                            @empty
+                                {{-- Kosongkan saja jika tidak ada data di kolom ini --}}
+                            @endforelse
                         </div>
+
+                        {{-- Kolom 2 --}}
                         <div class="scrolling-column">
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Advokasi Cepat</h5>
-                                    <p class="card-text text-muted small">"Apresiasi untuk tim advokasi BEM yang responsif
-                                        menangani keluhan. Prosesnya cepat dan solutif."</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Citra
-                                            Lestari</small></div>
+                            @forelse ($aspirasiColumns[1] ?? [] as $item)
+                                <div class="card p-3 shadow-sm border-0 bg-white text-dark">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">{{ $item['judul'] }}</h5>
+                                        <p class="card-text text-muted small">"{{ $item['deskripsi'] }}"</p>
+                                        <hr>
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($item['nama']) }}&background=random"
+                                                class="rounded-circle me-3" alt="Foto">
+                                            <small class="fw-bold">{{ $item['nama'] }}</small>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Peduli Sesama</h5>
-                                    <p class="card-text text-muted small">"Kegiatan bakti sosial sangat menyentuh. Senang
-                                        melihat mahasiswa bisa berkontribusi langsung."</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Rina
-                                            Amelia</small></div>
-                                </div>
-                            </div>
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Pengembangan Diri</h5>
-                                    <p class="card-text text-muted small">"Leadership Training Camp-nya seru banget! Banyak
-                                        ilmu baru yang didapat."</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Agung
-                                            Wijaya</small></div>
-                                </div>
-                            </div>
-                            <div class="card p-3 shadow-sm border-0 bg-white text-dark">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Advokasi Cepat</h5>
-                                    <p class="card-text text-muted small">"Apresiasi untuk tim advokasi BEM yang responsif
-                                        menangani keluhan. Prosesnya cepat dan solutif."</p>
-                                    <hr>
-                                    <div class="d-flex align-items-center mt-2"><img src="https://via.placeholder.com/40"
-                                            class="rounded-circle me-3" alt="Foto"><small class="fw-bold">Citra
-                                            Lestari</small></div>
-                                </div>
-                            </div>
+                            @empty
+                                {{-- Kosongkan saja jika tidak ada data di kolom ini --}}
+                            @endforelse
                         </div>
+
                     </div>
                 </div>
+
                 <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
                     <div class="card p-4 shadow-sm border-0">
                         <div class="card-body text-dark">
                             <h4 class="fw-bold text-del-dark mb-3">Sampaikan Aspirasimu</h4>
-                            <p class="text-muted small mb-4">Setiap masukan Anda sangat berharga untuk kemajuan kita
-                                bersama. Silakan isi form di bawah ini.</p>
-                            <form action="#" method="POST">
-                                <div class="mb-3"><label for="namaAspiran" class="form-label fw-semibold">Nama
-                                        Anda</label><input type="text" class="form-control" id="namaAspiran" name="nama"
-                                        placeholder="Contoh: Budi Santoso" required></div>
-                                <div class="mb-3"><label for="deskripsiAspirasi" class="form-label fw-semibold">Aspirasi
-                                        atau Masukan</label><textarea class="form-control" id="deskripsiAspirasi"
-                                        name="aspirasi" rows="5"
-                                        placeholder="Tuliskan masukan, saran, atau apresiasi Anda di sini..."
-                                        required></textarea></div>
+
+                            {{-- Menampilkan pesan sukses atau error --}}
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger">{{ session('error') }}</div>
+                            @endif
+
+                            <p class="text-muted small mb-4">Setiap masukan Anda sangat berharga.</p>
+
+                            {{-- Form diupdate di sini --}}
+                            <form action="{{ route('storeAspirasi') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="namaAspiran" class="form-label fw-semibold">Nama Anda</label>
+                                    <input type="text" class="form-control" id="namaAspiran" name="nama"
+                                        placeholder="Contoh: Budi Santoso" required>
+                                </div>
+
+                                {{-- PASTIKAN INPUT INI MEMILIKI name="judul" --}}
+                                <div class="mb-3">
+                                    <label for="judulAspirasi" class="form-label fw-semibold">Judul Aspirasi</label>
+                                    <input type="text" class="form-control" id="judulAspirasi" name="judul"
+                                        placeholder="Contoh: Program Bermanfaat" required>
+                                </div>
+
+                                {{-- PASTIKAN TEXTAREA INI MEMILIKI name="deskripsi" --}}
+                                <div class="mb-3">
+                                    <label for="deskripsiAspirasi" class="form-label fw-semibold">Aspirasi atau
+                                        Masukan</label>
+                                    <textarea class="form-control" id="deskripsiAspirasi" name="deskripsi" rows="4"
+                                        placeholder="Tuliskan masukan Anda di sini..." required></textarea>
+                                </div>
+
                                 <button type="submit" class="btn btn-warning w-100 fw-bold py-2">Kirim Aspirasi</button>
                             </form>
                         </div>

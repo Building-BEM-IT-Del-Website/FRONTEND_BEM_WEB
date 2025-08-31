@@ -8,7 +8,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <p class="text-uppercase fw-bold" data-aos="fade-down">Informasi Penting</p>
-                    <h1 class="display-3 fw-bold text-white" data-aos="fade-down" data-aos-delay="100">Papan <span class="highlight">Pengumuman</span></h1>
+                    <h1 class="display-3 fw-bold text-white" data-aos="fade-down" data-aos-delay="100">Papan <span
+                            class="highlight">Pengumuman</span></h1>
                     <p class="lead text-white-50 mt-3" data-aos="fade-down" data-aos-delay="200">
                         Pusat informasi dan pengumuman resmi dari Badan Eksekutif Mahasiswa Institut Teknologi Del.
                     </p>
@@ -16,6 +17,14 @@
             </div>
         </div>
     </section>
+        @php
+        // Definisikan mapping ikon (tidak berubah)
+        $categoryIcons = [
+            'Event' => 'bi-calendar-check', 'Rekrutmen' => 'bi-people-fill',
+            'Beasiswa' => 'bi-award-fill', 'Akademik' => 'bi-mortarboard-fill',
+            'Umum' => 'bi-info-circle-fill', 'default' => 'bi-megaphone-fill'
+        ];
+    @endphp
 
     <!-- Konten dengan Layout Dua Kolom -->
     <section class="py-5 bg-del-light-gray">
@@ -23,85 +32,110 @@
             <div class="row g-5">
                 <!-- Kolom Utama: Daftar Pengumuman -->
                 <div class="col-lg-8">
-                    <div class="list-group announcement-list">
-                        {{-- NANTINYA DATA INI AKAN DIAMBIL DARI DATABASE --}}
 
-                        <!-- Pengumuman Item 1 -->
-                        <a href="/detail-pengumuman" class="list-group-item list-group-item-action p-4" data-aos="fade-up" data-aos-delay="100">
-                            <div class="d-flex align-items-center">
-                                <div class="announcement-icon me-3">
-                                    <i class="bi bi-calendar-check"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold">Jadwal Pengambilan Jas Almamater Angkatan 2024</h5>
-                                        <small class="text-muted d-none d-md-block">3 hari lalu</small>
+                    @if(request()->has('year') && request()->has('month'))
+                        @php
+                            $activeArchiveDate = \Carbon\Carbon::createFromDate(request('year'), request('month'), 1);
+                        @endphp
+                        <div class="alert alert-info mb-4" data-aos="fade-up">
+                            Menampilkan arsip untuk: <strong>{{ $activeArchiveDate->translatedFormat('F Y') }}</strong>
+                        </div>
+                    @elseif(request()->has('search'))
+                        <div class="alert alert-info mb-4" data-aos="fade-up">
+                            Hasil pencarian untuk: <strong>"{{ request('search') }}"</strong>
+                        </div>
+                    @endif
+
+                    {{-- daftar pengumuman dan pagination --}}
+                    <div class="list-group announcement-list">
+                        @forelse ($pengumumanData['data'] ?? [] as $item)
+                            <a href="/detail-pengumuman/{{ $item['id'] }}" class="list-group-item list-group-item-action p-4" data-aos="fade-up">
+                                <div class="d-flex align-items-center">
+                                    <div class="announcement-icon me-3">
+                                        @php
+                                            $categoryName = $item['kategori']['nama_kategori'] ?? 'default';
+                                            $iconClass = $categoryIcons[$categoryName] ?? $categoryIcons['default'];
+                                        @endphp
+                                        <i class="bi {{ $iconClass }}"></i>
                                     </div>
-                                    <p class="mb-1 text-muted">Pengambilan dapat dilakukan di Sekretariat BEM mulai tanggal 10-15 Agustus 2024 pada jam kerja.</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- Pengumuman Item 2 -->
-                        <a href="#" class="list-group-item list-group-item-action p-4" data-aos="fade-up" data-aos-delay="200">
-                             <div class="d-flex align-items-center">
-                                <div class="announcement-icon me-3">
-                                    <i class="bi bi-people-fill"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold">Open Recruitment Staf BEM Kabinet #SahatMarsada</h5>
-                                        <small class="text-muted d-none d-md-block">5 hari lalu</small>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1 fw-bold">{{ $item['nama_pengumuman'] }}</h5>
+                                            <small class="text-muted d-none d-md-block">{{ \Carbon\Carbon::parse($item['created_at'])->diffForHumans() }}</small>
+                                        </div>
+                                        <p class="mb-1 text-muted">{{ Str::limit($item['deskripsi'], 150) }}</p>
                                     </div>
-                                    <p class="mb-1 text-muted">Bagi seluruh mahasiswa aktif angkatan 2023 yang berkomitmen, segera daftarkan dirimu!</p>
                                 </div>
-                            </div>
-                        </a>
-                        <!-- Pengumuman Item 3 -->
-                        <a href="#" class="list-group-item list-group-item-action p-4" data-aos="fade-up" data-aos-delay="300">
-                             <div class="d-flex align-items-center">
-                                <div class="announcement-icon me-3">
-                                    <i class="bi bi-award-fill"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold">Informasi Beasiswa Pendidikan Prestasi Tahun 2024</h5>
-                                        <small class="text-muted d-none d-md-block">1 minggu lalu</small>
-                                    </div>
-                                    <p class="mb-1 text-muted">Silakan unduh panduan dan persyaratan pada link yang tertera di dalam pengumuman detail.</p>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        @empty
+                            <div class="alert alert-warning">Tidak ada pengumuman yang cocok dengan kriteria Anda.</div>
+                        @endforelse
                     </div>
-                    <!-- Pagination -->
-                    <nav aria-label="Page navigation" class="mt-5 d-flex justify-content-center" data-aos="fade-up">
-                        <ul class="pagination shadow-sm">
-                            <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Selanjutnya</a></li>
-                        </ul>
-                    </nav>
+
+                    @if (!empty($pengumumanData['links']))
+                        <nav class="mt-5 d-flex justify-content-center" data-aos="fade-up">
+                            <ul class="pagination shadow-sm">
+                                @foreach ($pengumumanData['links'] as $link)
+                                    @if ($link['url'] === null)
+                                        <li class="page-item disabled"><span class="page-link">{!! $link['label'] !!}</span></li>
+                                    @elseif ($link['active'])
+                                        <li class="page-item active"><span class="page-link">{!! $link['label'] !!}</span></li>
+                                    @else
+                                        <li class="page-item"><a class="page-link" href="{{ $link['url'] }}">{!! $link['label'] !!}</a></li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </nav>
+                    @endif
+
                 </div>
 
                 <!-- Kolom Sidebar -->
                 <div class="col-lg-4">
-                    <!-- Widget Pencarian -->
-                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
-                        <h5 class="widget-title">Cari Pengumuman</h5>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Ketik kata kunci...">
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
-                        </form>
-                    </div>
+                    <div class="sidebar-widget" data-aos="fade-left">
+                    <h5 class="widget-title">Cari Pengumuman</h5>
+        <form method="GET" action="{{ route('halamanPengumuman') }}">
+            {{-- Dibungkus dengan .input-group untuk menyatukan elemen --}}
+            <div class="input-group">
+                <input 
+                    class="form-control" 
+                    type="search" 
+                    name="search" 
+                    placeholder="Ketik kata kunci..." 
+                    value="{{ e(request('search')) }}" 
+                    aria-label="Cari Pengumuman"
+                >
+                
+                {{-- Tombol Cari --}}
+                <button class="btn btn-primary" type="submit" title="Cari">
+                    <i class="bi bi-search"></i>
+                </button>
+        
+                {{-- Tombol Hapus Filter (di dalam group) --}}
+                @if(request()->has('search') || request()->has('year'))
+                    <a href="{{ route('halamanPengumuman') }}" class="btn btn-outline-secondary" title="Hapus Filter">
+                        {{-- Menggunakan ikon 'X' yang lebih intuitif untuk "clear" --}}
+                        <i class="bi bi-x-lg"></i>
+                    </a>
+                @endif
+            </div>
+        </form>
+</div>
 
-                    <!-- Widget Arsip -->
-                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="200">
+                    <!-- Widget Arsip Dinamis -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
                         <h5 class="widget-title">Arsip</h5>
                         <div class="list-group list-group-flush archive-list">
-                            <a href="#" class="list-group-item list-group-item-action">Agustus 2024</a>
-                            <a href="#" class="list-group-item list-group-item-action">Juli 2024</a>
-                            <a href="#" class="list-group-item list-group-item-action">Juni 2024</a>
-                            <a href="#" class="list-group-item list-group-item-action">Mei 2024</a>
+                            @forelse ($archives as $archive)
+                                @php
+                                    $date = \Carbon\Carbon::createFromDate($archive['year'], $archive['month'], 1);
+                                @endphp
+                                <a href="{{ route('halamanPengumuman', ['year' => $archive['year'], 'month' => $archive['month']]) }}" class="list-group-item list-group-item-action">
+                                   {{ $date->translatedFormat('F Y') }}
+                                </a>
+                            @empty
+                                <p class="list-group-item text-muted">Belum ada arsip.</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>
